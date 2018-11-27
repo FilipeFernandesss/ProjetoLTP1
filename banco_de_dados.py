@@ -13,7 +13,6 @@ class BD():
 
 
         for linha in arquivo:
-            print(linha)
             lista = linha.strip('\n').split(',')
             carro = Carro(lista[0], lista[1], int(lista[2]), lista[3], lista[4], lista[5])
             carros.append(carro)

@@ -1,6 +1,8 @@
 #Classe que controla os comportamentos dos carros(excluir, inserir ...)
 from banco_de_dados import BD
 from carro import Carro
+
+
 class Concessionaria():
     def __init__(self, nome):
         self.nome = nome
