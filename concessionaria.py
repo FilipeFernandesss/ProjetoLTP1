@@ -1,12 +1,16 @@
 #Classe que controla os comportamentos dos carros(excluir, inserir ...)
 from banco_de_dados import BD
 from carro import Carro
+from banco_de_dados_vendedor import Vendedores
+from banco_de_dados_compradores import BD_Compradores
 
 
 class Concessionaria():
     def __init__(self, nome):
         self.nome = nome
         self.banco = BD()
+        self.banco_vendedores = Vendedores()
+        self.banco_compradores = BD_Compradores
 
     def get_nome(self):
         return self.nome
@@ -16,7 +20,6 @@ class Concessionaria():
         carro = Carro(marca, modelo, ano, estado, placa, preco)
         self.banco.lista_carros.append(carro)
         self.banco.salvar_carros(self.banco.lista_carros)
-
 
 
     #Método para excluir um carro
@@ -30,4 +33,6 @@ class Concessionaria():
 
             ct += 1
 
+    def realizar_venda(self, vendedor, comprador, carro, valor):
+        pass
 

@@ -5,19 +5,22 @@ from janela_inserir import Janela_Inserir
 from janela_exibir import Janela_Exibir
 
 
-class Janela_Principal(Tk):
-    def __init__(self, controle):
+class Janela_Veiculos(Toplevel):
+    def __init__(self,parent, controle):
+        super().__init__(parent)
+
         self.controle = controle
 
-        super().__init__()
 
         self.geometry('350x400+200+200')
-        self.title('JANELA PRINCIPAL')
+        self.title('VEÍCULOS')
+        self.transient(parent)
+        self.grab_set()
 
         btn_exibit = Button(self, width=20, text='Exibir carros', command=self.janela_exibir)
         btn_inserir = Button(self, width=20,text='Inserir novo carro', command=self.janela_inserir)
         btn_excluir = Button(self, width=20, text='Excluir carro', command=self.janela_excluir)
-        btn_sair = Button(self, width=20, text='Sair')
+        btn_sair = Button(self, width=20, text='Voltar', command=self.destroy)
 
         btn_exibit.place(x=100,y=40)
         btn_inserir.place(x=100,y=140)

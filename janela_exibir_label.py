@@ -1,6 +1,7 @@
 #classe para exibição das informações dos carros
 from tkinter import *
 
+
 class Janela_Exibir_Label(Toplevel):
     def __init__(self, parent, controle):
         super().__init__(parent)
@@ -14,6 +15,8 @@ class Janela_Exibir_Label(Toplevel):
 
         self.label = []
         ct = 0
+        variancia = 1
+
 
         car = self.controle.bd.lista_carros
 
@@ -25,5 +28,6 @@ class Janela_Exibir_Label(Toplevel):
 
             label = Label(self, text=texto)
             self.label.append(label)
-            self.label[ct].place(x=10, y=25)
+            self.label[ct].place(x=10, y=variancia*25)
             ct += 1
+            variancia += 2.5

@@ -1,6 +1,7 @@
 #Classe para gravar e recuperar os carros
 from carro import Carro
 
+
 class BD():
     def __init__(self):
         self.lista_carros = self.carregar_carros()
