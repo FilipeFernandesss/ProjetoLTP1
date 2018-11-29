@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
-from janela_venda_compradores import Venda_Compradores
+
 from datetime import date
 
 
@@ -63,22 +63,29 @@ class Janela_Venda(Toplevel):
 
 
     def btn_click(self):
-        data_atual = date.today()
+        data_atual = date.today() #recebe a data atual
+
+        #Verifica se o nome do vendedor e a matricula não estao vazios
         if len(self.et_nome_vendedor.get()) == 0 or len(self.et_matricula.get()) == 0:
             messagebox.showinfo(title='Erro', message='Campo em branco')
 
         else:
+            #Percorre os vendedores na lista de vendedores
             for vendedor in self.controle.bd_vendedores.lista_vendedores:
-
+                #Verifica se a matricula recebida pertence a algum funcionario
                 if int(self.et_matricula.get()) == vendedor.get_matricula():
+                    #Verfica se o nome do comprador ou o cpf estão em branco
                     if len(self.et_nome.get()) == 0 or len(self.et_cpf.get()) == 0:
                         messagebox.showinfo(title='Erro', message='Campo em branco')
                     else:
                         if messagebox.askokcancel(title='Venda', message='Deseja realmente vender esse veículo?'):
+                            #Percorre os carros na lista de carros
                             for carro in self.controle.bd.lista_carros:
+                                #Verifica se a placa fornecida no entry é igual a alguma placa de algum carro
                                 if self.et_placa.get() in carro.get_placa():
-                                    self.controle.inserir_comprador(self.et_nome.get(), self.et_cpf.get())
+                                    self.controle.inserir_comprador(self.et_nome.get(), self.et_cpf.get()) #Inseri um novo comprador.
 
+                                    #Inseri uma nota fiscal
                                     self.controle.inserir_nota(self.et_nome_vendedor.get(), int(self.et_matricula.get()), self.et_nome.get(),
                                                                self.et_cpf.get(), self.et_modelo.get(), self.et_placa.get(), float(self.et_preco.get()), data_atual)
                                     self.controle.excluir(self.et_placa.get())

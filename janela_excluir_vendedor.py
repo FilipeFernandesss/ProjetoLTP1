@@ -29,13 +29,16 @@ class Janela_Exluir_Vendeder(Toplevel):
         self.button.place(x=60, y=250)
 
     def btn_on_click(self):
+        #Verifica se os Entry não estão vazios
         if len(self.et_nome.get()) == 0 or len(self.et_matricula.get()) == 0:
             messagebox.showinfo(message='Campo em branco!')
 
         else:
+            #Percorre a lista de vendedores
             for vendedor in self.controle.bd_vendedores.lista_vendedores:
-
+                #Verifica se o nome recebido no entry é igual ao nome do vendedor na lista
                 if self.et_nome.get() in vendedor.get_nome():
+                    #Verifica se a matricula recebida é igual à matricula do vendedor
                     if int(self.et_matricula.get()) == vendedor.get_matricula():
                         if messagebox.askokcancel(title='Excluir', message='Deseja realmente excluir o veiculo?'):
                             self.controle.excluir_vendedor(self.et_nome.get(), self.et_matricula.get())

@@ -4,9 +4,10 @@ from janela_veiculos import Janela_Veiculos
 from janela_vendedores import Janela_Vendedor
 from janela_venda import Janela_Vendas
 from janela_exibir_compradores import Janela_Exibir_Compradores
+from tkinter import messagebox
 
 class Tela_Principal(Tk):
-
+    #Método construtor da janela principal
     def __init__(self, controle):
         self.controle = controle
 
@@ -15,6 +16,7 @@ class Tela_Principal(Tk):
         self.geometry('350x400+200+200')
         self.title('JANELA PRINCIPAL')
 
+        #Widgets
         btn_veiculos = Button(self, width=20, text='Veículos', command=self.criar_veiculos)
         btn_vendedores = Button(self, width=20,text='Vendedores', command=self.criar_vendedor)
         btn_compradores = Button(self, width=20, text='Compradores', command=self.criar_exibir_compradores)
@@ -27,6 +29,7 @@ class Tela_Principal(Tk):
         btn_realizar_venda.place(x=100, y=260)
         btn_sair.place(x=100, y=340)
 
+    #Métodos dos botões
     def criar_veiculos(self):
         Janela_Veiculos(self, self.controle)
 
@@ -38,3 +41,8 @@ class Tela_Principal(Tk):
 
     def criar_exibir_compradores(self):
         Janela_Exibir_Compradores(self, self.controle)
+
+    #Sobrescrita do método.
+    def destroy(self):
+        if messagebox.askokcancel(title='Sair', message='Deseja realmente sair?'):
+            super().destroy()

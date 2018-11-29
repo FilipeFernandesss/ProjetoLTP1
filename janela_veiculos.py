@@ -2,7 +2,7 @@
 from tkinter import *
 from janela_excluir import Janela_Excluir
 from janela_inserir import Janela_Inserir
-from janela_exibir import Janela_Exibir
+from janela_exibir_label import Janela_Exibir_Label
 
 
 class Janela_Veiculos(Toplevel):
@@ -34,5 +34,5 @@ class Janela_Veiculos(Toplevel):
         Janela_Inserir(self, self.controle)
 
     def janela_exibir(self):
-        Janela_Exibir(self, self.controle)
+        Janela_Exibir_Label(self, self.controle)
 

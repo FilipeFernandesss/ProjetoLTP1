@@ -12,6 +12,7 @@ class Controle_Vendedor():
         self.banco_vendedores.lista_vendedores.append(novo_vendedor)
         self.banco_vendedores.salvar_vendedores(self.banco_vendedores.lista_vendedores)
 
+    #Método para excluir um vendedor
     def excluir_vendedor(self, nome, matricula):
         ct = 0
         for vendedor in self.banco_vendedores.lista_vendedores:

@@ -33,6 +33,4 @@ class Concessionaria():
 
             ct += 1
 
-    def realizar_venda(self, vendedor, comprador, carro, valor):
-        pass
 

@@ -8,7 +8,7 @@ class Janela_Exibir_Vendedores(Toplevel):
 
         self.controle = controle
 
-        self.geometry('495x730+370+0')
+        self.geometry('507x730+370+0')
         self.title('Exibir Vendedores')
         self.transient(parent)
         self.grab_set()

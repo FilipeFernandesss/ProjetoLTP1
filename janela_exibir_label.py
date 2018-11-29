@@ -9,25 +9,26 @@ class Janela_Exibir_Label(Toplevel):
 
         self.controle = controle
 
-        self.geometry('307x328+200+200')
+        self.geometry('495x730+370+0')
         self.title('Exibir Informações')
         self.transient(parent)
         self.grab_set()
 
-        self.label = []
+        self.texto = []
         ct = 0
         variancia = 1
 
 
-        car = self.controle.bd.lista_carros
 
         for carro in self.controle.bd.lista_carros:
             print(carro.get_modelo())
-            texto ='Marca: ' + carro.marca + '\n' + 'Modelo: ' + carro.modelo
+            texto ='Marca: ' + carro.marca + '\n' + 'Modelo: ' + carro.modelo + '\n' + 'Ano: ' + str(carro.ano) \
+                   + '\n' + 'Estado: ' + carro.estado + '\n' + 'Placa: ' + carro.placa + '\n' + 'Preço: ' + str(carro.preco)
             print(texto)
 
-            label = Label(self, text=texto)
-            self.label.append(label)
-            self.label[ct].place(x=5, y=variancia*25)
+            self.text = Text(self, height=6)
+
+            self.text.insert(INSERT, texto)
+            self.text.pack()
+            self.texto.append(texto)
             ct += 1
-            variancia += 2.5

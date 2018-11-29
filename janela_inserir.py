@@ -57,11 +57,13 @@ class Janela_Inserir(Toplevel):
         self.botao.place(x=100, y=250)
 
     def btn_on_click(self):
+        #Verifica se os entry não estão vazios
         if len(self.ed1.get()) == 0 or len(self.ed2.get()) == 0 or len(self.ed3.get()) == 0 or len(self.ed4.get()) == 0 \
                 or len(self.ed5.get()) == 0 or len(self.ed6.get()) == 0:
 
             messagebox.showerror("Error", "CAMPO EM BRANCO!")
 
+        #Verifica se o ano e o preco são números (Os entry retornam em string)
         elif (str(self.ed3.get()).isnumeric() and str(self.ed6.get()).isnumeric()):
             self.controle.inserir(self.ed1.get(), self.ed2.get(), int(self.ed3.get()),
                                   self.ed4.get(), self.ed5.get(), float(self.ed6.get()))

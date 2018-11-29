@@ -11,16 +11,19 @@ class Janela_Vendedor(Toplevel):
 
         self.controle = controle
 
+        #Atributos para a janela
         self.geometry('350x400+200+200')
         self.title('VENDEDORES')
         self.transient(parent)
         self.grab_set()
 
+        #Widgets
         btn_exibir_vendedeores = Button(self, width=20, text='Exibir Vendedores', command=self.criar_janela_exibir)
         btn_inserir_vendedor = Button(self, width=20, text='Inserir Novo Vendedor', command=self.criar_janela_inserir)
         btn_excluir_vendedor = Button(self, width=20, text='Excluir Vendedor', command=self.criar_janela_excluir)
         btn_sair = Button(self, width=20, text='Voltar', command=self.destroy)
 
+        #Places
         btn_exibir_vendedeores.place(x=100, y=40)
         btn_inserir_vendedor.place(x=100, y=140)
         btn_excluir_vendedor.place(x=100, y=240)
