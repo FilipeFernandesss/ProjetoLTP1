@@ -1,5 +1,6 @@
-#classe para exibição das informações dos carros
+#janela para exibição das informações dos carros
 from tkinter import *
+
 
 
 class Janela_Exibir_Label(Toplevel):
@@ -20,14 +21,13 @@ class Janela_Exibir_Label(Toplevel):
 
         car = self.controle.bd.lista_carros
 
-
         for carro in self.controle.bd.lista_carros:
-            print(carro)
-            texto = 'Marca:' + carro.marca + '\n' + 'Modelo:' + carro.modelo
+            print(carro.get_modelo())
+            texto ='Marca: ' + carro.marca + '\n' + 'Modelo: ' + carro.modelo
             print(texto)
 
             label = Label(self, text=texto)
             self.label.append(label)
-            self.label[ct].place(x=10, y=variancia*25)
+            self.label[ct].place(x=5, y=variancia*25)
             ct += 1
             variancia += 2.5

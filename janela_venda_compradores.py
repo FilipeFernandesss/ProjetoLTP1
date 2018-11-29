@@ -9,7 +9,7 @@ class Venda_Compradores(Toplevel):
 
         self.controle = controle
 
-        self.geometry('215x320+200+200')
+        self.geometry('201x230+200+200')
         self.title('Comprador')
         self.transient(parent)
         self.grab_set()
@@ -27,7 +27,7 @@ class Venda_Compradores(Toplevel):
         self.lb_cpf.place(x=10, y=85)
 
         self.button = Button(self, width=10, text='OK', command=self.btn_click)
-        self.button.place(x=60, y=250)
+        self.button.place(x=60, y=150)
 
     def criar_venda_carro(self):
         Venda_Carro(self, self.controle)

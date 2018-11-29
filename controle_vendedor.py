@@ -15,6 +15,8 @@ class Controle_Vendedor():
     def excluir_vendedor(self, nome, matricula):
         ct = 0
         for vendedor in self.banco_vendedores.lista_vendedores:
-            if int(matricula) == vendedor.get_matricula():
-                del self.banco_vendedores.lista_vendedores[ct]
-                self.banco_vendedores.salvar_vendedores(self.banco_vendedores.lista_vendedores)
+            if nome == vendedor.get_nome():
+                if int(matricula) == vendedor.get_matricula():
+                    del self.banco_vendedores.lista_vendedores[ct]
+                    self.banco_vendedores.salvar_vendedores(self.banco_vendedores.lista_vendedores)
+            ct += 1

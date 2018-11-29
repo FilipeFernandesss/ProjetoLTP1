@@ -6,6 +6,8 @@ from controle_vendedor import Controle_Vendedor
 from banco_de_dados_vendedor import Vendedores
 from banco_de_dados_compradores import BD_Compradores
 from controle_compradores import Controle_Compradores
+from bd_nota_fiscal import BD_Nota_Fiscal
+from controle_nota import Controle_Nota
 
 class Controle():
     def __init__(self):
@@ -15,6 +17,8 @@ class Controle():
         self.bd_vendedores = Vendedores()
         self.controle_compradores = Controle_Compradores()
         self.bd_compradores = BD_Compradores()
+        self.controle_nota = Controle_Nota()
+        self.bd_nota = BD_Nota_Fiscal()
         self.tela_principal = Tela_Principal(self)
         self.tela_principal.mainloop()
 
@@ -32,3 +36,6 @@ class Controle():
 
     def inserir_comprador(self, nome, cpf):
         self.controle_compradores.inserir_comprador(nome, cpf)
+
+    def inserir_nota(self, nome_vendedor, matricula_vendedor, nome_comprador, cpf_comprador, modelo, placa, preco, data):
+        self.controle_nota.inserir_comprador(nome_vendedor, matricula_vendedor, nome_comprador, cpf_comprador, modelo, placa, preco, data)

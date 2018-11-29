@@ -2,6 +2,7 @@
 from tkinter import *
 from janela_inserir_vendedor import Janela_Inserir_Vendedor
 from janela_excluir_vendedor import Janela_Exluir_Vendeder
+from janela_exibir_vendedores import Janela_Exibir_Vendedores
 
 
 class Janela_Vendedor(Toplevel):
@@ -15,7 +16,7 @@ class Janela_Vendedor(Toplevel):
         self.transient(parent)
         self.grab_set()
 
-        btn_exibir_vendedeores = Button(self, width=20, text='Exibir Vendedores')
+        btn_exibir_vendedeores = Button(self, width=20, text='Exibir Vendedores', command=self.criar_janela_exibir)
         btn_inserir_vendedor = Button(self, width=20, text='Inserir Novo Vendedor', command=self.criar_janela_inserir)
         btn_excluir_vendedor = Button(self, width=20, text='Excluir Vendedor', command=self.criar_janela_excluir)
         btn_sair = Button(self, width=20, text='Voltar', command=self.destroy)
@@ -30,3 +31,6 @@ class Janela_Vendedor(Toplevel):
 
     def criar_janela_excluir(self):
         Janela_Exluir_Vendeder(self, self.controle)
+
+    def criar_janela_exibir(self):
+        Janela_Exibir_Vendedores(self, self.controle)

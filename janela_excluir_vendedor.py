@@ -29,7 +29,7 @@ class Janela_Exluir_Vendeder(Toplevel):
         self.button.place(x=60, y=250)
 
     def btn_on_click(self):
-        if len(self.et_nome.get()) == 0 and len(self.et_matricula.get()) == 0:
+        if len(self.et_nome.get()) == 0 or len(self.et_matricula.get()) == 0:
             messagebox.showinfo(message='Campo em branco!')
 
         else:

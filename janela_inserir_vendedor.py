@@ -39,6 +39,9 @@ class Janela_Inserir_Vendedor(Toplevel):
         if len(self.et_nome.get()) == 0 or len(self.et_cpf.get()) == 0 or len(self.et_matricula.get()) == 0:
             messagebox.showerror(message='CAMPO EM BRANCO')
 
+        elif len(self.et_matricula.get()) != 5:
+            messagebox.showinfo(title='Erro', message='Matrícula Inválida')
+
         elif str(self.et_matricula.get()).isnumeric():
             self.controle.inserir_vendedor(self.et_nome.get(), self.et_cpf.get(), int(self.et_matricula.get()))
             self.destroy()

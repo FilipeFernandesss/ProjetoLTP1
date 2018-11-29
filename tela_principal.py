@@ -2,7 +2,8 @@
 from tkinter import *
 from janela_veiculos import Janela_Veiculos
 from janela_vendedores import Janela_Vendedor
-from janela_realizar_venda import Janela_Venda
+from janela_venda import Janela_Vendas
+from janela_exibir_compradores import Janela_Exibir_Compradores
 
 class Tela_Principal(Tk):
 
@@ -16,9 +17,9 @@ class Tela_Principal(Tk):
 
         btn_veiculos = Button(self, width=20, text='Veículos', command=self.criar_veiculos)
         btn_vendedores = Button(self, width=20,text='Vendedores', command=self.criar_vendedor)
-        btn_compradores = Button(self, width=20, text='Compradores')
-        btn_realizar_venda = Button(self, width=20, text='Realizar Venda', command=self.criar_realizar_venda)
-        btn_sair = Button(self, width=20, text='Sair')
+        btn_compradores = Button(self, width=20, text='Compradores', command=self.criar_exibir_compradores)
+        btn_realizar_venda = Button(self, width=20, text='Vendas', command=self.criar_vendas)
+        btn_sair = Button(self, width=20, text='Sair', command=self.destroy)
 
         btn_veiculos.place(x=100, y=20)
         btn_vendedores.place(x=100, y=100)
@@ -32,5 +33,8 @@ class Tela_Principal(Tk):
     def criar_vendedor(self):
         Janela_Vendedor(self, self.controle)
 
-    def criar_realizar_venda(self):
-        Janela_Venda(self, self.controle)
+    def criar_vendas(self):
+        Janela_Vendas(self, self.controle)
+
+    def criar_exibir_compradores(self):
+        Janela_Exibir_Compradores(self, self.controle)

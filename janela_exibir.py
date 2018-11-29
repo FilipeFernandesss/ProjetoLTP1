@@ -23,7 +23,7 @@ class Janela_Exibir(Toplevel):
         for carro in self.controle.bd.lista_carros:
             print(carro)
 
-            text = 'Carro', ct+1
+            text = carro.get_modelo()
 
             botao = Button(self, width=8, text=text, command=self.criar_label)
 
@@ -37,3 +37,6 @@ class Janela_Exibir(Toplevel):
 
     def criar_label(self):
         Janela_Exibir_Label(self, self.controle)
+
+    def get_button(self):
+        return self.btn
